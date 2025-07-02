@@ -1,1 +1,1 @@
-require board=peridot
+require board=pineapple|peridot
