@@ -165,9 +165,16 @@ TW_EXCLUDE_APEX := true
 TW_HAS_EDL_MODE := true
 
 # Haptic
-TW_SUPPORT_INPUT_AIDL_HAPTICS := true
-TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/vibratorfeature"
-TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
+FIXED_HAPTICS := false
+
+ifeq ($(FIXED_HAPTICS),true)
+   TW_SUPPORT_INPUT_AIDL_HAPTICS := true
+   TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/vibratorfeature"
+   TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
+else
+   TW_NO_HAPTICS := true
+endif
+
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
 TW_LOAD_VENDOR_MODULES := "adsp_loader_dlkm.ko fts_touch_spi.ko qti_battery_charger.ko"
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone48/temp"
