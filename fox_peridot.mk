@@ -19,9 +19,10 @@
 #
 
 # screen settings
-OF_SCREEN_H := 2712
-OF_STATUS_H := 100
-OF_HIDE_NOTCH := 1
+# e.g. if the aspect ratio is 19:9 then use 19*120 (=2280)
+OF_SCREEN_H := 2400
+#OF_STATUS_H := 100
+#OF_HIDE_NOTCH := 1
 OF_CLOCK_POS := 1
 OF_STATUS_INDENT_LEFT := 56
 OF_STATUS_INDENT_RIGHT := 48
@@ -35,7 +36,7 @@ OF_NO_TREBLE_COMPATIBILITY_CHECK := 1
 OF_DYNAMIC_FULL_SIZE := 9122611200
 
 # number of list options before scrollbar creation
-OF_OPTIONS_LIST_NUM := 9
+OF_OPTIONS_LIST_NUM := 6
 
 # A/B with recovery partition
 OF_AB_DEVICE_WITH_RECOVERY_PARTITION := 1
@@ -58,4 +59,20 @@ OF_USE_LZ4_COMPRESSION := 1
 
 # build all the partition tools
 OF_ENABLE_ALL_PARTITION_TOOLS := 1
-#
+
+ifeq ($(FIXED_DECRYPT),false)
+	# Set to 1 to skip the FBE decryption routines (prevents hanging at the Fox logo or Redmi/Mi logo)
+	OF_SKIP_FBE_DECRYPTION := 1
+endif
+
+# Set this to 1 to replace the "Swipe up" lockscreen screen with a button
+OF_USE_LOCKSCREEN_BUTTON := 1
+
+# Called just before formatting /data; only useful for devices/ROMs that have dynamic partitions
+OF_USE_DMCTL := 1
+
+# Use this to change the default time zone
+OF_DEFAULT_TIMEZONE := GMT0;BST,M3.5.0,M10.5.0
+
+# Set this to 1 to avoid the new 'NO KERNEL CONFIG' error, when using a prebuilt kernel
+OF_FORCE_PREBUILT_KERNEL := 1
