@@ -20,27 +20,22 @@
 
 #set -o xtrace
 FDEVICE="peridot"
-THIS_DEVICE=${BASH_ARGV[2]}
 
 fox_get_target_device() {
-local chkdev=$(echo "$BASH_SOURCE" | grep -w \"$FDEVICE\")
-   if [ -n "$chkdev" ]; then 
-      FOX_BUILD_DEVICE="$FDEVICE"
-   else
-      chkdev=$(set | grep BASH_ARGV | grep -w \"$FDEVICE\")
-      [ -n "$chkdev" ] && FOX_BUILD_DEVICE="$FDEVICE"
-   fi
+	local script_path="${BASH_SOURCE[0]}"
+	if echo "$script_path" | grep -q "$FDEVICE"; then
+		FOX_BUILD_DEVICE="$FDEVICE"
+	elif echo "$0" | grep -q "$FDEVICE"; then
+		FOX_BUILD_DEVICE="$FDEVICE"
+	fi
 }
 
-if [ -z "$1" -a -z "$FOX_BUILD_DEVICE" ]; then
-   fox_get_target_device
+if [ -z "$FOX_BUILD_DEVICE" ]; then
+	fox_get_target_device
 fi
 
-if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
-	if [ -z "$THIS_DEVICE" ]; then
-		echo "ERROR! This script requires bash. Run '/bin/bash' and build again."
-		exit 1
-	fi
+if [ "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
+	echo "Detected build device: $FOX_BUILD_DEVICE"
 
 	export FOX_USE_SPECIFIC_MAGISK_ZIP=~/Magisk/Magisk-v28.1.zip
 	export FOX_VIRTUAL_AB_DEVICE=1
@@ -60,8 +55,6 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
     	export FOX_USE_DATA_RECOVERY_FOR_SETTINGS=1
     	export FOX_VARIANT="A14";
 else
-	if [ -z "$FOX_BUILD_DEVICE" -a -z "$BASH_SOURCE" ]; then
-		echo "I: This script requires bash. Not processing the $FDEVICE $(basename $0)"
-	fi
+	echo "I: vendorsetup.sh skipped; device mismatch or environment issue."
 fi
 #
