@@ -68,7 +68,7 @@ if [ "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	# export FOX_ENABLE_SUKISU_SUPPORT=1
 
 	# Fox Settings
-	export FOX_VARIANT="crypto"
+	export FOX_VARIANT="auto-dfe"
 	export FOX_SETTINGS_ROOT_DIRECTORY="/persist"
 	export FOX_MAINTAINER_PATCH_VERSION="$(date -d "+77 minutes" +%Y%m%d%H%M)"
 	export FOX_ALLOW_EARLY_SETTINGS_LOAD=1
