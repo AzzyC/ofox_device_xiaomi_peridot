@@ -169,7 +169,7 @@ TW_EXCLUDE_APEX := true
 TW_HAS_EDL_MODE := true
 
 # Haptic
-FIXED_HAPTICS := true
+FIXED_HAPTICS := false
 
 ifeq ($(FIXED_HAPTICS),true)
    TW_SUPPORT_INPUT_AIDL_HAPTICS := true
