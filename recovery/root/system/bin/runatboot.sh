@@ -19,5 +19,7 @@ LOGMSG "---$SCRIPT_NAME start---"
 
 reset_touch
 
+/sbin/prune_historic_logs.sh 10
+
 LOGMSG "---$SCRIPT_NAME end---"
 exit 0
