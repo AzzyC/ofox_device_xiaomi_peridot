@@ -17,13 +17,25 @@ reset_touch() {
 	fi
 }
 
+purge_logs() {
+	LOGMSG "Purging recovery-generated logs older than 10 days..."
+
+	FOX_LOG_DIR="/persist/Fox/logs"
+
+	if [ -d "$FOX_LOG_DIR" ]; then
+		find "$FOX_LOG_DIR" -maxdepth 1 -type f -mtime +10 -print -delete
+	else
+		LOGMSG "$FOX_LOG_DIR not present"
+	fi
+}
+
 SCRIPT_NAME="$(basename "$0")"
 
 LOGMSG "---$SCRIPT_NAME start---"
 
 reset_touch
 
-/sbin/prune_historic_logs.sh 10
+purge_logs
 
 LOGMSG "---$SCRIPT_NAME end---"
 exit 0
