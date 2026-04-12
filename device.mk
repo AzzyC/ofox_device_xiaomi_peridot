@@ -6,25 +6,21 @@
 
 DEVICE_PATH := device/xiaomi/peridot
 
-# Configure base.mk
+# Base product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
-
-# Configure core_64_bit_only.mk
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 
-# Configure Virtual A/B
+# Virtual A/B OTA configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
-
-# Configure virtual_ab compression.mk
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression.mk)
 
-# Configure emulated_storage.mk
+# Emulated storage support
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # Configure twrp common.mk
 $(call inherit-product, vendor/twrp/config/common.mk)
 
-# some OrangeFox-specific settings
+# Device-specific OrangeFox configuration
 $(call inherit-product, $(DEVICE_PATH)/fox_peridot.mk)
 
 PRODUCT_PACKAGES += \
@@ -32,7 +28,7 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-impl-qti.recovery
 
 # API
-PRODUCT_SHIPPING_API_LEVEL  := 34
+PRODUCT_SHIPPING_API_LEVEL := 34
 PRODUCT_TARGET_VNDK_VERSION := 34
 BOARD_SHIPPING_API_LEVEL := 34
 SHIPPING_API_LEVEL := 34
