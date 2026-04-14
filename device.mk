@@ -23,10 +23,6 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 # Device-specific OrangeFox configuration
 $(call inherit-product, $(DEVICE_PATH)/fox_peridot.mk)
 
-PRODUCT_PACKAGES += \
-    bootctrl.xiaomi_sm8635.recovery \
-    android.hardware.boot@1.2-impl-qti.recovery
-
 # API
 PRODUCT_SHIPPING_API_LEVEL := 34
 PRODUCT_TARGET_VNDK_VERSION := 34
