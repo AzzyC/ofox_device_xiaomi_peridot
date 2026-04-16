@@ -1,0 +1,18 @@
+on property:post.decrypt.modules=true
+    write /dev/kmsg "[wlan] booting wpss"
+    write /sys/kernel/icnss/wlan_en_delay 1000
+    write /sys/kernel/icnss/wpss_boot 1
+
+    wait /sys/class/net/wlan0 10
+    write /dev/kmsg "[wlan] wlan0 found"
+
+    setprop wifi.driver.ready true
+
+on property:wifi.driver.ready=true
+    write /dev/kmsg "[wlan] readying wpa_supplicant"
+    mkdir /tmp/recovery 0777 root root
+    mkdir /tmp/recovery/sockets 0777 root root
+
+service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 -dd -O/tmp/recovery/sockets -c/vendor/etc/wifi/wpa_supplicant.conf
+    disabled
+    seclabel u:r:recovery:s0
