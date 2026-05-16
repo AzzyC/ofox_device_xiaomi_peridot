@@ -51,7 +51,6 @@ on fs
 
 on init
     start vendor.boot-qti
-    setprop prepdecrypt.setpatch true
 
 # potential workaround for HyperOS ROMs where 'crypto.ready' isn't set early enough by prepdecrypt.sh (causing decryption failure on flashed recovery,
 # while being successful on hot-booted recovery). It can be set anywhere (init, boot, post-fs, etc) - here we set it as late as possible, to avoid new
@@ -75,9 +74,6 @@ on property:twrp.modules.loaded=true
     start vendor.health-recovery
     start vibratorfeature-hal-service
     umount /firmware
-
-on property:ro.crypto.state=encrypted && property:ro.boot.dynamic_partitions=true
-    start prepdecrypt.vendor
 
 on property:vendor.sys.listeners.registered=true
     start vendor.ssgtzd
