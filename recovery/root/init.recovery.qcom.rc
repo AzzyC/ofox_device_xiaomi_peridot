@@ -52,12 +52,6 @@ on fs
 on init
     start vendor.boot-qti
 
-# potential workaround for HyperOS ROMs where 'crypto.ready' isn't set early enough by prepdecrypt.sh (causing decryption failure on flashed recovery,
-# while being successful on hot-booted recovery). It can be set anywhere (init, boot, post-fs, etc) - here we set it as late as possible, to avoid new
-# problems with other ROMs
-on property:prepdecrypt.vendor_mounted=1
-    setprop crypto.ready 1
-
 on boot
     setprop sys.usb.config adb
 
