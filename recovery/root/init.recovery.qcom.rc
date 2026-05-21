@@ -28,7 +28,6 @@
 on early-init
     wait /sys/fs/selinux/enforce
     write /sys/fs/selinux/enforce 0
-    start vendor.gatekeeper_default
 
 on early-fs
     write /proc/sys/walt/sched_lib_name "recovery,magiskboot,Updater,updater,update_engine_sideload"
@@ -47,7 +46,6 @@ on fs
     mkdir /mnt/vendor/persist 0775 shell system
     mkdir /tmp/persist 0775 shell system
     mount none /tmp/persist /mnt/vendor/persist bind rec
-    install_keyring
 
 on init
     start vendor.boot-qti
@@ -64,7 +62,6 @@ on property:twrp.modules.loaded=true
     write /sys/kernel/boot_adsp/boot 1
     wait /sys/class/power_supply/battery
     start vendor.qseecomd
-    start touch_report
     start vendor.health-recovery
     start vibratorfeature-hal-service
     umount /firmware
@@ -72,3 +69,4 @@ on property:twrp.modules.loaded=true
 on property:vendor.sys.listeners.registered=true
     start vendor.ssgtzd
     start vendor.keymint-qti
+    start vendor.gatekeeper_default
