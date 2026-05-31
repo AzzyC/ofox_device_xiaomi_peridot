@@ -15,8 +15,8 @@ PRODUCT_RELEASE_NAME := peridot
 ## Device identifier
 PRODUCT_DEVICE := peridot
 PRODUCT_NAME := twrp_peridot
-PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := RedmiTurbo3
+PRODUCT_BRAND := POCO
+PRODUCT_MODEL := POCO F6
 PRODUCT_MANUFACTURER := Xiaomi
 
 # Assert
