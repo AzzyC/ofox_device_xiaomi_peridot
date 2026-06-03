@@ -68,5 +68,7 @@ on property:twrp.modules.loaded=true
 
 on property:vendor.sys.listeners.registered=true
     start vendor.ssgtzd
+    start vendor.secure_element
+    start vendor.weaver_nxp
     start vendor.keymint-qti
     start vendor.gatekeeper_default
