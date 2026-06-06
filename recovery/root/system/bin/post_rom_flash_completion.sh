@@ -8,13 +8,17 @@ LOGMSG() {
 
 LOGMSG "---$SCRIPT_NAME start---"
 
-if [ -f /tmp/fox_backup.img ]; then
+if [ -s /tmp/fox_backup.img ]; then
 	for slot in _a _b; do
-		LOGMSG "Restoring OrangeFox to slot ${slot}..."
-		if dd if="/tmp/fox_backup.img" of="/dev/block/bootdevice/by-name/recovery${slot}" bs=1M; then
-			sync
+		if [ -e /dev/block/bootdevice/by-name/recovery${slot} ]; then
+			LOGMSG "Restoring OrangeFox to slot ${slot}..."
+			if dd if="/tmp/fox_backup.img" of="/dev/block/bootdevice/by-name/recovery${slot}" bs=1M; then
+				sync
+			else
+				LOGMSG "Failed to flash to slot ${slot}..."
+			fi
 		else
-			LOGMSG "Failed to flash to slot ${slot}..."
+	        LOGMSG "Recovery partition not found for slot ${slot}, skipping restore..."
 		fi
 	done
 else
