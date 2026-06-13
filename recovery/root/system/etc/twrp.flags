@@ -5,7 +5,7 @@
 # mount point          fstype  device                                        device2              flags
 
 # Userdata/Metadata partitions
-/metadata              f2fs    /dev/block/bootdevice/by-name/metadata                             flags=display="Metadata";backup=1;wrappedkey
+/metadata              f2fs    /dev/block/bootdevice/by-name/metadata                             flags=display="Metadata";wrappedkey
 
 # Other partitions
 /cache                 ext4    /dev/block/bootdevice/by-name/rescue                               flags=display="Cache";formattable;wipeduringfactoryreset
@@ -19,8 +19,8 @@
 /recovery              emmc    /dev/block/bootdevice/by-name/recovery                             flags=display="Recovery";backup=1;slotselect;flashimg=1
 
 # AVB partitions
-/vbmeta                emmc    /dev/block/bootdevice/by-name/vbmeta                               flags=display="VBMeta";backup=1;slotselect;flashimg=1
-/vbmeta_system         emmc    /dev/block/bootdevice/by-name/vbmeta_system                        flags=display="VBMeta System";backup=1;slotselect;flashimg=1
+/vbmeta                emmc    /dev/block/bootdevice/by-name/vbmeta                               flags=display="VBMeta";backup=1;slotselect
+/vbmeta_system         emmc    /dev/block/bootdevice/by-name/vbmeta_system                        flags=display="VBMeta System";backup=1;slotselect
 
 # Persistent Firmware & Properties
 /persist               ext4    /dev/block/bootdevice/by-name/persist                              flags=display="Persist"
@@ -44,4 +44,4 @@
 
 # Removable storage
 /storage               auto    /data/media/0                                                      flags=display="Internal Storage";backup=1;usermrf;fsflags="bind,utf8";removable
-/usb_otg               auto    /dev/block/sdg1                            /dev/block/sdg4         flags=display="USB-OTG";storage;wipeingui;fsflags=utf8;removable
+/usb_otg               auto    /dev/block/sdg1                            /dev/block/sdg4         flags=display="USB-Storage";storage;wipeingui;fsflags=utf8;removable
