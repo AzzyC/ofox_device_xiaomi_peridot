@@ -49,7 +49,7 @@ OF_UNBIND_SDCARD_F2FS := 1
 OF_WIPE_METADATA_AFTER_DATAFORMAT := 1
 
 # avoid MTP issues after data format
-OF_BIND_MOUNT_SDCARD_ON_FORMAT := 1
+# OF_BIND_MOUNT_SDCARD_ON_FORMAT := 1
 
 # don't spam the console with loop errors
 OF_LOOP_DEVICE_ERRORS_TO_LOG := 1
@@ -94,4 +94,4 @@ OF_FORCE_DATA_FORMAT_F2FS := 1
 OF_ENABLE_FRP_ADDON := 1
 
 # Set to 1 to force the casefolding props to true. Useful for devices that shipped with Android 11+/FBEv2, where casefolding is always used
-# OF_FORCE_CASEFOLDING := 1
+OF_FORCE_CASEFOLDING := 1
