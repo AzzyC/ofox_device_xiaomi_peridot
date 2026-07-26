@@ -52,6 +52,14 @@ on init
 
 on boot
     setprop sys.usb.config adb
+    # Dual LED flashlight workaround
+    start peridot-flashlight
+
+service peridot-flashlight /system/bin/peridot_flashlight.sh
+    class core
+    user root
+    group root
+    seclabel u:r:recovery:s0
 
 on property:twrp.modules.loaded=true
     # Mount firmware

@@ -95,3 +95,7 @@ OF_ENABLE_FRP_ADDON := 1
 
 # Set to 1 to force the casefolding props to true. Useful for devices that shipped with Android 11+/FBEv2, where casefolding is always used
 OF_FORCE_CASEFOLDING := 1
+
+# Set to 1 to enable the flashlight feature
+OF_FLASHLIGHT_ENABLE := 1
+OF_FL_PATH1 := /tmp/flashlight
