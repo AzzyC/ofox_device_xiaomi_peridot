@@ -25,15 +25,15 @@ else
 	LOGMSG "Unable to find OrangeFox image for restoring..."
 fi
 
-# LOGMSG "Clearing previous DFE installation logs..."
-# rm -rf /sdcard/neo_file_*
+LOGMSG "Clearing previous DFE installation logs..."
+rm -rf /sdcard/neo_file_*
 
-# LOGMSG "Setting instructions for next reboot..."
-# echo "install /FFiles/DFE.zip" > /cache/recovery/openrecoveryscript
+LOGMSG "Setting instructions for next reboot..."
+echo "install /FFiles/DFE.zip" > /cache/recovery/openrecoveryscript
 
-# LOGMSG "Preserving recovery.log before recovery reboot..."
+LOGMSG "Preserving recovery.log before recovery reboot..."
 LOGMSG "---$SCRIPT_NAME end---"
-# mkdir -p /persist/Fox/logs
-# cp /tmp/recovery.log "/persist/Fox/logs/dfe_recovery_$(date +"%Y%m%d_%H%M%S").log"
+mkdir -p /persist/Fox/logs
+cp /tmp/recovery.log "/persist/Fox/logs/dfe_recovery_$(date +"%Y%m%d_%H%M%S").log"
 
-# reboot recovery
+reboot recovery
