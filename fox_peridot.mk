@@ -99,3 +99,6 @@ OF_FORCE_CASEFOLDING := 1
 # Set to 1 to enable the flashlight feature
 OF_FLASHLIGHT_ENABLE := 1
 OF_FL_PATH1 := /tmp/flashlight
+
+# Set to 1 to block operations after flashing a ROM i.e. formatting data, flashing other zips etc.
+OF_BLOCK_OPERATIONS_AFTER_ROM_FLASH := 1
