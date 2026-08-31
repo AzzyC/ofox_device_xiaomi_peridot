@@ -10,37 +10,37 @@
 			</text>
 
 			<text style="text_ab_title">
-				<placement x="%col1_x_indent%" y="%row1_2_y%" placement="2"/>
+				<placement x="%col1_x%" y="%row1_2_y%" placement="2"/>
 				<text>{@queue_hdr}</text>
 			</text>
 
 			<text style="text_ab_subtitle">
-				<placement x="%col1_x_indent%" y="%row1_2_y%"/>
+				<placement x="%col1_x%" y="%row1_2_y%"/>
 				<text>{@zip_queue_count}</text>
 			</text>
 
 			<text style="caption">
-				<placement x="%col1_x_caption%" y="%row2_1a_y%"/>
+				<placement x="%gl_text_x%" y="%row2_1a_y%"/>
 				<text>{@file}</text>
 			</text>
 
 			<text style="text_body1">
-				<placement x="%col1_x_caption%" y="%row2_2a_y%"/>
+				<placement x="%gl_text_x%" y="%row2_2a_y%"/>
 				<text>%tw_file%</text>
 			</text>
 
 			<text style="caption">
-				<placement x="%col1_x_caption%" y="%row3_1a_y%"/>
+				<placement x="%gl_text_x%" y="%row3_1a_y%"/>
 				<text>{@folder}</text>
 			</text>
 
 			<text style="text_body1">
-				<placement x="%col1_x_caption%" y="%row3_2a_y%"/>
+				<placement x="%gl_text_x%" y="%row3_2a_y%"/>
 				<text>%tw_zip_location%</text>
 			</text>
 
 			<text style="caption">
-				<placement x="%col1_x_caption%" y="%row4_1a_y%"/>
+				<placement x="%gl_text_x%" y="%row4_1a_y%"/>
 				<text>{@options_hdr}</text>
 			</text>
 
@@ -163,12 +163,12 @@
 			</text>
 
 			<text style="text_ab_title">
-				<placement x="%col1_x_indent%" y="%row1_2_y%" placement="2"/>
+				<placement x="%col1_x%" y="%row1_2_y%" placement="2"/>
 				<text>{@fox_modules_inst}</text>
 			</text>
 
 			<text style="text_ab_subtitle">
-				<placement x="%col1_x_indent%" y="%row1_2_y%"/>
+				<placement x="%col1_x%" y="%row1_2_y%"/>
 				<text>%fox_m_name%</text>
 			</text>
 			
@@ -285,12 +285,12 @@
 			</text>
 
 			<text style="text_ab_title">
-				<placement x="%col1_x_indent%" y="%row1_2_y%" placement="2"/>
+				<placement x="%col1_x%" y="%row1_2_y%" placement="2"/>
 				<text>{@zip_queue}</text>
 			</text>
 
 			<text style="text_ab_subtitle">
-				<placement x="%col1_x_indent%" y="%row1_2_y%"/>
+				<placement x="%col1_x%" y="%row1_2_y%"/>
 				<text>{@zip_queue_count}</text>
 			</text>
 
@@ -462,7 +462,7 @@
 			<template name="flash_page"/>
 
 			<text style="caption">
-				<placement x="%col1_x_caption%" y="%row2_1a_y%"/>
+				<placement x="%gl_text_x%" y="%row2_1a_y%"/>
 				<text>{@flash_image_select}</text>
 			</text>
 
@@ -517,7 +517,7 @@
 			<template name="flash_page"/>
 
 			<text style="caption">
-				<placement x="%col1_x_caption%" y="%row2_1a_y%"/>
+				<placement x="%gl_text_x%" y="%row2_1a_y%"/>
 				<text>{@img_type}</text>
 			</text>
 
@@ -529,7 +529,7 @@
 			</listbox>
 			
 			<text style="caption">
-				<placement x="%col1_x_caption%" y="%row3_3a_y%"/>
+				<placement x="%gl_text_x%" y="%row3_3a_y%"/>
 				<text>{@options_cptn}</text>
 			</text>
 
@@ -597,12 +597,12 @@
 			<template name="actionbar_storage"/>
 
 			<text style="text_ab_title">
-				<placement x="%col1_x_indent%" y="%row1_2_y%" placement="2"/>
+				<placement x="%col1_x%" y="%row1_2_y%" placement="2"/>
 				<text>{@zip_add_queue}</text>
 			</text>
 
 			<text style="text_ab_subtitle_lim">
-				<placement x="%col1_x_indent%" y="%row1_2_y%"/>
+				<placement x="%col1_x%" y="%row1_2_y%"/>
 				<text>%tw_zip_location_tmp%</text>
 			</text>
 
@@ -641,12 +641,12 @@
 			</text>
 
 			<text style="text_ab_title">
-				<placement x="%col1_x_indent%" y="%row1_2_y%" placement="2"/>
+				<placement x="%col1_x%" y="%row1_2_y%" placement="2"/>
 				<text>{@install_zip_count_hdr}</text>
 			</text>
 
 			<text style="text_ab_subtitle_lim">
-				<placement x="%col1_x_indent%" y="%row1_2_y%"/>
+				<placement x="%col1_x%" y="%row1_2_y%"/>
 				<text>%tw_file%</text>
 			</text>
 
@@ -669,12 +669,12 @@
 			</text>
 
 			<text style="text_ab_title">
-				<placement x="%col1_x_indent%" y="%row1_2_y%" placement="2"/>
+				<placement x="%col1_x%" y="%row1_2_y%" placement="2"/>
 				<text>{@flashing_image}</text>
 			</text>
 
 			<text style="text_ab_subtitle_lim">
-				<placement x="%col1_x_indent%" y="%row1_2_y%"/>
+				<placement x="%col1_x%" y="%row1_2_y%"/>
 				<text>%tw_file%</text>
 			</text>
 
@@ -693,11 +693,20 @@
 			</text>
 
 			<text style="text_ab_subtitle">
-				<placement x="%col1_x_indent%" y="%row1_2_y%"/>
+				<placement x="%col1_x%" y="%row1_2_y%"/>
 				<text>%tw_zip_index% {@of} %qcount_temp%</text>
 			</text>
 
 			<button style="btn_raised">
+				<condition var1="tw_reboot_recovery" var2="1"/>
+				<placement x="%btn_raised_left_x%" y="%row_btn1_y%"/>
+				<text>{@reboot_recovery_btn}</text>
+				<action function="set">tw_back=main</action>
+				<action function="set">tw_action_param=recovery</action>
+				<action function="page">rebootcheck</action>
+			</button>
+
+			<!--button style="btn_raised">
 				<placement x="%btn_raised_left_x%" y="%row_btn1_y%"/>
 				<text>{@wipe_cache_btn}</text>
 				<action function="disableled"/>
@@ -712,7 +721,7 @@
 				<action function="set">tw_complete_text1={@wipe_cache_dalvik_complete}</action>
 				<action function="set">tw_slider_text={@swipe_wipe}</action>
 				<action function="page">confirm_action</action>
-			</button>
+			</button -->
 
 			<action>
 				<condition var1="tw_install_reboot" var2="1"/>
@@ -745,12 +754,12 @@
 			</text>
 
 			<text style="text_ab_title">
-				<placement x="%col1_x_indent%" y="%row1_2_y%" placement="2"/>
+				<placement x="%col1_x%" y="%row1_2_y%" placement="2"/>
 				<text>{@successful}</text>
 			</text>
 
 			<text style="text_ab_subtitle">
-				<placement x="%col1_x_indent%" y="%row1_2_y%"/>
+				<placement x="%col1_x%" y="%row1_2_y%"/>
 				<text>{@install_reboot}</text>
 			</text>
 
@@ -793,7 +802,7 @@
 			</text>
 
 			<text style="text_ab_subtitle">
-				<placement x="%col1_x_indent%" y="%row1_2_y%"/>
+				<placement x="%col1_x%" y="%row1_2_y%"/>
 				<text>{@image_flashed}</text>
 			</text>
 
