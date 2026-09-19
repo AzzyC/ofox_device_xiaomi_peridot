@@ -11,6 +11,12 @@ on property:wifi.driver.ready=true
     mkdir /tmp/recovery/sockets 0777 root root
     start wpa_supplicant
 
+on property:sys.fox.wlan.up=1 && property:wifi.driver.ready=true
+    setprop sys.fox.wlan.up 0
+    mkdir /tmp/recovery 0777 root root
+    mkdir /tmp/recovery/sockets 0777 root root
+    start wpa_supplicant
+
 service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 -dd -O/tmp/recovery/sockets -c/vendor/etc/wifi/wpa_supplicant.conf
     disabled
     seclabel u:r:recovery:s0
