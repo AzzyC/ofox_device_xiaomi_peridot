@@ -73,6 +73,7 @@ if [ "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_MAINTAINER_PATCH_VERSION="$(date -d "1 hour" +%Y%m%d%H%M)"
 	export FOX_ALLOW_EARLY_SETTINGS_LOAD=1
 	export FOX_RESET_SETTINGS="disabled"
+	export FOX_NO_BLANK_DT2W=1
 else
 	echo "I: vendorsetup.sh skipped; device mismatch or environment issue."
 fi
