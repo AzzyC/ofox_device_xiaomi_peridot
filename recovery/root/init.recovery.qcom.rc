@@ -55,6 +55,11 @@ on boot
     # Dual LED flashlight workaround
     start peridot-flashlight
 
+# Stop repeated requests for unavailable HIDL Health 2.1 service
+# We use Qualcomm's AIDL Health HAL
+on property:init.svc.recovery=running && property:init.svc.charger=running
+    stop charger
+
 service peridot-flashlight /system/bin/peridot_flashlight.sh
     class core
     user root
