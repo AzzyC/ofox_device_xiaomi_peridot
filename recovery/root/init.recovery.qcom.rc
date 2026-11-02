@@ -39,6 +39,12 @@ on fs
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    # Firmware must exist before the initial WLAN module pass
+    # pd-mapper helper recognises this read-only, current-slot mount and can reuse it
+    # Do not bind /vendor/firmware_mnt here; recovery temporarily mounts /vendor
+    # during module discovery and a nested mount could obstruct its unmount
+    mkdir /firmware 0755 root root
+    mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /firmware ro
     write /proc/sys/kernel/firmware_config/force_sysfs_fallback 1
     chmod 0660 /dev/qseecom
     chown system drmrpc /dev/qseecom

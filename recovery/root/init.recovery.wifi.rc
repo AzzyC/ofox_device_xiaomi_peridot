@@ -1,9 +1,10 @@
+on property:twrp.modules.loaded=true
+    start fox-wlan-early
+
+# Preserve a post-decrypt retry for a worker that could not start initially,
+# without requesting a second WPSS boot after successful early startup.
 on property:post.decrypt.modules=true
-    setprop sys.fox.wlan.up 0
-    write /dev/kmsg "[wlan] booting wpss"
-    write /sys/kernel/icnss/wlan_en_delay 1000
-    write /sys/kernel/icnss/wpss_boot 1
-    start fox-wlan-ready
+    start fox-wlan-early
 
 on property:wifi.driver.ready=true
     write /dev/kmsg "[wlan] readying wpa_supplicant"
@@ -21,9 +22,14 @@ service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 -dd -O/tmp/r
     disabled
     seclabel u:r:recovery:s0
 
-service fox-wlan-ready /system/bin/sh -c "until test -e /sys/class/net/wlan0; do sleep 1; done; setprop wifi.driver.ready true"
+
+# Idempotent one-shot readiness helper
+# Don't interrupt recovery UI / crypto startup
+service fox-wlan-early /system/bin/sh /system/bin/fox_wlan_early.sh
+    class core
     disabled
     oneshot
     user root
     group root
     seclabel u:r:recovery:s0
+    stdio_to_kmsg
