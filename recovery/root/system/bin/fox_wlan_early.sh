@@ -88,6 +88,17 @@ log "WLAN modules and firmware ready, Gatekeeper running"
 [ -w /sys/kernel/icnss/wlan_en_delay ] || fail "Missing WLAN delay node"
 [ -w /sys/kernel/icnss/wpss_boot ] || fail "Missing WPSS boot node"
 
+# The driver requests wlan_mac.bin about 7s after this worker starts.
+# Provide recovery a per-device identity before requesting WPSS, instead of
+# relying on recovery's later Wi-Fi setup to generate the file.
+# This modifies only the recovery ramdisk
+if [ ! -e /tmp/fox_wlan_wpss_requested ]; then
+    [ -x /system/bin/fox-peridot-wlan-mac ] || fail "Missing recovery MAC helper"
+    /system/bin/fox-peridot-wlan-mac >> "$LOG" 2>&1 || \
+        fail "Failed to generate the deterministic MAC before WPSS"
+    log "Prepared per-device WLAN MAC file before WPSS boot"
+fi
+
 # This marker survives the post-decrypt fallback but not a recovery reboot
 # Avoid retriggering a remote processor that is already booting or running
 if [ ! -e /tmp/fox_wlan_wpss_requested ]; then

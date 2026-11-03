@@ -1,0 +1,8 @@
+// WLAN MAC generator
+cc_binary {
+    name: "fox-peridot-wlan-mac",
+    srcs: ["fox_peridot_wlan_mac.c"],
+    recovery: true,
+    stl: "none",
+    cflags: ["-Wall", "-Wextra", "-Werror"],
+}
