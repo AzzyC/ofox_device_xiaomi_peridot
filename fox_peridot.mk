@@ -105,3 +105,6 @@ OF_FL_PATH1 := /tmp/flashlight
 
 # Set to 1 to block operations after flashing a ROM i.e. formatting data, flashing other zips etc.
 OF_BLOCK_OPERATIONS_AFTER_ROM_FLASH := 1
+
+# Override default vibration durations with three comma-delimited values for: button, keyboard, and action
+OF_VIBRATION_DEFAULTS := 3,3,500
